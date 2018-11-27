@@ -19,7 +19,21 @@ public class GroupService {
         groupRepository.save(group);
     }
 
-    public Group get(String group) {
-        return groupRepository.get(group);
+    public void updateTeacher(Group group, String teacherName){groupRepository.updateTeacher(group, teacherName);}
+
+    public Group getOne(String group) {
+        return groupRepository.getOne(group);
+    }
+
+    public List<Group> getAll(){
+        return groupRepository.getAll();
+    }
+
+    public List<Group> getByName(String name){
+        return groupRepository.getByName(name);
+    }
+
+    public List<Group> getByTeacher(String teacherName){
+        return groupRepository.getByTeacher(teacherName);
     }
 }

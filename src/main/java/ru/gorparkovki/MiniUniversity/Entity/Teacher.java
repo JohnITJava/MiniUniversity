@@ -7,30 +7,30 @@ import java.util.List;
 
 @Document
 public class Teacher {
-    private String name;
-    private List<Group> groups;
+    private String teacher;
+    private String group;
 
     public Teacher() {
     }
 
-    public Teacher(String name, Group group) {
-        this.name = name;
-        this.groups.add(group);
+    public Teacher(String name, String group) {
+        this.teacher = name;
+        this.group = group;
     }
 
-    public String getName() {
-        return name;
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public String getGroup() {
+        return group;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

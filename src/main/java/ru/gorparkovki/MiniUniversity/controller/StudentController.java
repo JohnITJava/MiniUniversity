@@ -17,8 +17,6 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    private final CopyOnWriteArrayList<Student> studentList = new CopyOnWriteArrayList<>();
-
     @GetMapping("/student")
     @ResponseBody
     public List<Student> read() {
@@ -28,8 +26,6 @@ public class StudentController {
     @PostMapping("/student")
     @ResponseBody
     public List<Student> create(@RequestBody Student... newStudents) {
-        //studentService.addAll(newStudents);
         return Arrays.asList(newStudents);
     }
-
 }

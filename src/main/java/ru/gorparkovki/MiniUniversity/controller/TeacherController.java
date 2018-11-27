@@ -5,43 +5,45 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.gorparkovki.MiniUniversity.Entity.Group;
 import ru.gorparkovki.MiniUniversity.Entity.Student;
+import ru.gorparkovki.MiniUniversity.Entity.Teacher;
 import ru.gorparkovki.MiniUniversity.Service.GroupService;
+import ru.gorparkovki.MiniUniversity.Service.TeacherService;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 @Controller
 public class TeacherController {
     StudentController studentController = new StudentController();
 
     @Autowired
-    GroupService groupService;
+    TeacherService teacherService;
 
-    private final ConcurrentMap<String, List<Student>> groups = new ConcurrentHashMap<>();
-    //private final CopyOnWriteArrayList<Group> groups = new CopyOnWriteArrayList<>();
-
-
-    @GetMapping("/group")
+    @GetMapping("/teacher/{name}/groups")
     @ResponseBody
-    public ConcurrentMap<String, List<Student>> read() {
-        return groups;
+    public List<Group> readGroups(@PathVariable(name = "name") String teacherName) {
+        List list = teacherService.getGroupByTeacher(teacherName).stream().map(Group::getGroup).collect(Collectors.toList());
+        return list;
     }
 
-    @GetMapping("/group/{group}")
+    @GetMapping("/teacher/{name}/students")
     @ResponseBody
-    public List<Student> read(@PathVariable(name = "group") String groupName) {
-        //return groups.get(groupName);
-        return groupService.get(groupName).getStudents();
+    public List<Student> readStudents(@PathVariable(name = "name") String teacherName) {
+        List list = teacherService.getGroupByTeacher(teacherName).stream().map(Group::getStudents).collect(Collectors.toList());
+        return list;
     }
 
-    @PostMapping("/group")
+    @PostMapping("/teacher")
     @ResponseBody
-    public Group create(@RequestBody Group newGroup) {
-        //groups.put(newGroup.getGroup(), newGroup.getStudents());
-        groupService.add(newGroup);
-        return newGroup;
+    public Teacher create(@RequestBody Teacher newTeacher) {
+        teacherService.add(newTeacher);
+        return newTeacher;
     }
+
 
 }
 

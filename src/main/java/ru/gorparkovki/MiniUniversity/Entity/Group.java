@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class Group {
     private String group;
     private ArrayList<Student> students;
+    private String teacherName = "";
 
     public Group() {
     }
@@ -32,5 +33,13 @@ public class Group {
 
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 }

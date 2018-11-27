@@ -19,6 +19,8 @@ public class TeacherRepository {
         mongoOperations.save(teacher);
     }
 
-
+    public Teacher get(String name) {
+        return mongoOperations.findOne(Query.query(Criteria.where("teacher").is(name)), Teacher.class);
+    }
 
 }
