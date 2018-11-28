@@ -8,14 +8,12 @@
     <artifactId>MiniUniversity</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- dependencies -->
-        <rest-assured.version>3.1.1</rest-assured.version>
-        <testng.version>6.14.3</testng.version>
-        <allure.testng.version>2.6.0</allure.testng.version>
-        <aspectj.version>1.8.10</aspectj.version>
-    </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
 
     <build>
         <plugins>
@@ -31,72 +29,74 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>5.1.2.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.1.0.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>5.1.2.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
+
+        <!--MongoDB-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>2.1.0.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>3.9.0</version>
+            <version>3.9.1</version>
         </dependency>
 
         <!-- TEST -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>5.14</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+            <version>2.0.4.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--Spring Test-->
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-test</artifactId>
+           <version>5.0.8.RELEASE</version>
+           <scope>test</scope>
+       </dependency>
+
+       <!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-test-->
+       <dependency>
+           <groupId>org.springframework.integration</groupId>
+           <artifactId>spring-integration-test</artifactId>
+           <version>5.1.0.RELEASE</version>
+           <scope>test</scope>
+       </dependency>
+
+        <!--EmbeddedMongoDB-->
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>json-path</artifactId>
-            <version>${rest-assured.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test-autoconfigure</artifactId>
+            <version>2.0.4.RELEASE</version>
             <scope>test</scope>
         </dependency>
 

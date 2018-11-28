@@ -45,5 +45,7 @@ public class GroupRepository {
         mongoOperations.updateFirst(query, update, Group.class);
     }
 
-
+    public void setMongoOperations(MongoOperations mongoOperations) {
+        this.mongoOperations = mongoOperations;
+    }
 }

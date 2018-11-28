@@ -2,6 +2,7 @@ package ru.gorparkovki.MiniUniversity.Repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 import ru.gorparkovki.MiniUniversity.Entity.Student;
 
@@ -27,4 +28,7 @@ public class StudentRepository {
         return mongoOperations.findAll(Student.class);
     }
 
+    public void setMongoOps(MongoTemplate mongoOps) {
+        this.mongoOperations = mongoOps;
+    }
 }
