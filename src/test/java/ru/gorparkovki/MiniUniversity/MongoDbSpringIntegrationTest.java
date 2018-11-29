@@ -14,7 +14,6 @@ import static org.junit.Assert.assertEquals;
 
 
 @DataMongoTest
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = {
         Application.class,
